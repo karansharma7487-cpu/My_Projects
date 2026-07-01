@@ -1,0 +1,279 @@
+/* ===== RESET & VARIABLES ===== */
+:root {
+    --brand-orange: #f59e0b;
+    --brand-orange-hover: #fbbf24;
+    --brand-dark: #0f172a;
+    --text-dark: #334155;
+    --text-gray: #64748b;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    padding-top: 70px; /* Accounts for fixed navbar */
+}
+
+/* ===== LAYOUT & CARD ===== */
+.booking-section {
+    padding: 60px 20px;
+}
+
+.booking-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-card {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ===== LEFT SIDE: FORM ===== */
+.booking-form-side {
+    flex: 1.4;
+    padding: 50px;
+}
+
+.booking-form-side h2 {
+    color: var(--brand-dark);
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.booking-form-side > p {
+    color: var(--text-gray);
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+
+.input-row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--brand-dark);
+    font-weight: 600;
+}
+
+/* UPDATED: Input and Select styling combined */
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-dark);
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    outline: none;
+    /* Removes default browser styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Added Custom Arrow for Select Dropdown */
+.input-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--brand-orange);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--brand-orange);
+    color: #111;
+    border: 2px solid var(--brand-orange);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.pay-btn:hover {
+    background: var(--brand-orange-hover);
+    border-color: var(--brand-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* ===== RIGHT SIDE: SUMMARY ===== */
+.summary-side {
+    flex: 1;
+    background: var(--brand-dark);
+    color: white;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.secure-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: #10b981; /* Emerald Green */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    width: fit-content;
+}
+
+.summary-side h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 15px;
+}
+
+.package-info h4 {
+    font-size: 22px;
+    color: var(--brand-orange);
+    margin-bottom: 8px;
+}
+
+.package-info p {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.price-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #334155;
+}
+
+.new-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.per-person {
+    font-size: 14px;
+    font-weight: 400;
+    color: #cbd5e1;
+}
+
+.perks-container h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.perks {
+    list-style: none;
+}
+
+.perks li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+}
+
+.check {
+    color: var(--brand-orange);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+/* ===== RESPONSIVE FIXES ===== */
+@media (max-width: 900px) {
+    .booking-card {
+        flex-direction: column;
+    }
+    
+    .booking-form-side {
+        padding: 40px 25px;
+    }
+
+    .summary-side {
+        padding: 40px 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Toast styling remains same */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--brand-dark);
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
